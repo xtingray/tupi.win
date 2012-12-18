@@ -23,8 +23,8 @@ HEADERS += tupmainwindow.h \
            tupstatusbar.h \
            tupnewproject.h \
            tupsplash.h \
-           tupcrashhandler.h \
-           tupcrashwidget.h \
+           # tupcrashhandler.h \
+           # tupcrashwidget.h \
            tupapplication.h \
            tuplocalprojectmanagerhandler.h
 
@@ -33,8 +33,8 @@ SOURCES += main.cpp \
            tupstatusbar.cpp \
            tupnewproject.cpp \
            tupsplash.cpp \
-           tupcrashhandler.cpp \
-           tupcrashwidget.cpp \
+           # tupcrashhandler.cpp \
+           # tupcrashwidget.cpp \
            tupapplication.cpp \
            tupmainwindow_gui.cpp \
            tuplocalprojectmanagerhandler.cpp

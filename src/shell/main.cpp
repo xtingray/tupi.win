@@ -42,10 +42,6 @@
 #include "tcollapsiblewidget.h"
 // #include "taudioplayer.h"
 
-#ifdef Q_OS_UNIX
-#include "tupcrashhandler.h"
-#endif
-
 #ifdef ENABLE_TUPISTYLE
 #include "twaitstyle.h"
 #endif
@@ -100,11 +96,6 @@ int main(int argc, char ** argv)
 
 #ifdef K_DEBUG
        TDebug::setOutputChannel();
-#endif
-
-#ifdef Q_OS_UNIX
-    // Initializing the crash handler, very useful to catch bugs
-    TupCrashHandler::init();
 #endif
 
     // Setting the current version for Tupi
@@ -237,12 +228,6 @@ int main(int argc, char ** argv)
            tWarning() << "main.cpp - Loading plugins from: " << kAppProp->pluginDir();
     #endif
     QApplication::addLibraryPath(kAppProp->pluginDir());
-
-    // Loading visual components required for the Crash Handler
-    #ifdef Q_OS_UNIX
-           CHANDLER->setConfig(DATA_DIR + "crashhandler.xml");
-           CHANDLER->setImagePath(THEME_DIR + "icons/");
-    #endif
 
     // If there is a second argument, it means to open a project from the command line
     if (argc == 2) {
