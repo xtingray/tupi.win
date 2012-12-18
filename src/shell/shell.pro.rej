@@ -1,0 +1,52 @@
+--- src/shell/shell.pro
++++ src/shell/shell.pro
+@@ -29,32 +29,34 @@
+                 target
+ 
+     tupidata.target = data
+-    tupidata.commands = cp -r data/* $(INSTALL_ROOT)/data
++    tupidata.commands = cp -r $(TUPI_HOME)/src/shell/data/* $(INSTALL_ROOT)/data
+     tupidata.path = /data/
+ 
+-    launcher.target = ../../launcher/tupi
+-    launcher.commands = cp ../../launcher/tupi $(INSTALL_ROOT)/bin; chmod 755 $(INSTALL_ROOT)/bin/tupi
++    launcher.target = $(TUPI_HOME)/launcher/tupi
++    launcher.commands = cp $(TUPI_HOME)/launcher/tupi $(INSTALL_ROOT)/bin; chmod 755 $(INSTALL_ROOT)/bin/tupi
+     launcher.path = /bin/
+ 
+-    INSTALLS += desktop \
+-                icons \
+-                tupiman \
+-                copyright
++#    INSTALLS += desktop \
++#                icons \
++#                tupiman \
++#                copyright
++
++    INSTALLS += icons
+ 
+-    desktop.target = ../../launcher/tupi.desktop
+-    desktop.commands = cp ../../launcher/tupi.desktop $(INSTALL_ROOT)/applications
++    desktop.target = $(TUPI_HOME)/launcher/tupi.desktop
++    desktop.commands = cp $(TUPI_HOME)/launcher/tupi.desktop $(INSTALL_ROOT)/applications
+     desktop.path = /applications/
+ 
+-    icons.target = ../../launcher/icons/tupi.png
+-    icons.commands = cp ../../launcher/icons/tupi.png $(INSTALL_ROOT)/pixmaps
++    icons.target = $(TUPI_HOME)/launcher/icons/tupi.png
++    icons.commands = cp $(TUPI_HOME)/launcher/icons/tupi.png $(INSTALL_ROOT)/pixmaps
+     icons.path = /pixmaps/
+ 
+-    tupiman.target = ../components/help/help/man/tupi.1.gz
+-    tupiman.commands = cp ../components/help/help/man/tupi.1.gz $(INSTALL_ROOT)/man1
++    tupiman.target = $(TUPI_HOME)/src/components/help/help/man/tupi.1.gz
++    tupiman.commands = cp $(TUPI_HOME)/src/components/help/help/man/tupi.1.gz $(INSTALL_ROOT)/man1
+     tupiman.path = /man1/
+ 
+-    copyright.target = ../components/help/help/man/copyright
+-    copyright.commands = cp ../components/help/help/man/copyright $(INSTALL_ROOT)/share/doc/tupi
++    copyright.target = $(TUPI_HOME)/src/components/help/help/man/copyright
++    copyright.commands = cp $(TUPI_HOME)/src/components/help/help/man/copyright $(INSTALL_ROOT)/share/doc/tupi
+     copyright.path = /tupi/
+ 
+     target.path = /bin/
